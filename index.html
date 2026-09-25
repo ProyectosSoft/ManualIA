@@ -157,7 +157,11 @@ td:first-child{font-weight:600;color:var(--ink)}
 .opts label:hover{border-color:var(--accent)}
 .opts input{margin-top:3px;accent-color:var(--accent)}
 .opts label:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opts label span{display:flex;flex-direction:column;gap:2px}
+.opts small.ex{color:var(--muted);font-weight:400;font-size:.78rem;line-height:1.35}
 .result{border-top:1px solid var(--line);padding-top:16px}
+.result .suggest{font-family:var(--f-ui);font-size:1rem;font-weight:600;margin:0 0 12px}
+.result .suggest b{color:var(--accent-ink)}
 .result .ph{font-family:var(--f-ui);font-size:.86rem;color:var(--muted)}
 .cells{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .cell{background:var(--surface);padding:10px 11px}
@@ -325,6 +329,8 @@ footer a{color:var(--muted)}
   </div>
   <div class="rule">Si algo de esta guía contradice la tarjeta de su área, vale la tarjeta: las tablas de
     actividades de cada área son la fuente de verdad.</div>
+  <div class="rule">Un término que va a ver seguido: <strong>cuota</strong>. Es cuánto puede usar Claude en
+    un periodo; en la aplicación aparece como <em>Usage</em>. Se explica a fondo en la sección 6.</div>
 </section>
 
 <!-- 2 -->
@@ -332,84 +338,46 @@ footer a{color:var(--muted)}
   <p class="sn">2</p>
   <h2>De qué es responsable cada quien</h2>
   <p class="intro">Las cuentas de Claude son corporativas: las paga la empresa, se abren con el correo
-    corporativo y el contenido que se genera con ellas es propiedad de Grupo Effi. Cada persona tiene la suya, independiente de
-    las demás. Por eso el buen uso depende de cada quien. Estas son las responsabilidades de cada rol.</p>
+    corporativo y el contenido que se genera con ellas es propiedad de Grupo Effi. El buen uso depende de cada quien. Estas son las responsabilidades de cada rol.</p>
 
   <div class="roles">
-    <div class="role you">
-      <h4>Usted, con su licencia</h4>
-      <p class="who">Responde por su cuenta y por todo lo que sale de ella</p>
-      <ul>
-        <li>Configura la cuenta el primer día, empezando por el opt-out de entrenamiento.</li>
-        <li>La usa solo para trabajo de la empresa y solo en su equipo asignado.</li>
-        <li>Revisa todo antes de usarlo. Lo que envía o firma es suyo, no de Claude.</li>
-        <li>Guarda en el repositorio lo que sirva a otros, el mismo día.</li>
-        <li>Cuida su cuota y reporta cualquier error o incidente sin esperar.</li>
-      </ul>
-    </div>
     <div class="role">
-      <h4>Líder de área</h4>
-      <p class="who">Responde por lo que su área produce con Claude</p>
+      <h4>Líder de Departamento</h4>
+      <p class="who">Responde por lo que su departamento produce con Claude</p>
       <ul>
         <li>Decide el nivel de una tarea cuando hay duda.</li>
-        <li>Recibe los incidentes del área y los escala a Gerencia.</li>
-        <li>Pide los accesos de su equipo a las carpetas del área.</li>
+        <li>Mantiene actualizadas en el Project las instrucciones y los prompts de su departamento.</li>
+        <li>Recibe los incidentes del departamento y los escala a Gerencia.</li>
+        <li>Pide los accesos de su equipo a las carpetas del departamento.</li>
       </ul>
     </div>
     <div class="role">
-      <h4>Responsable de conocimiento</h4>
-      <p class="who">Una persona por área · mantiene el material del área</p>
+      <h4>Líder de Desarrollo y TI</h4>
+      <p class="who">Jefferson Sanjuan · administra las cuentas y audita el uso de Claude</p>
       <ul>
-        <li>Mantiene las instrucciones y archivos del área en el repositorio, con sello de versión.</li>
-        <li>Avisa cuando hay una versión nueva, para que cada quien actualice su Project.</li>
-        <li>Cuida los prompts del área en la biblioteca y aprueba los nuevos.</li>
-        <li>Acompaña el checklist de salida cuando alguien deja el área.</li>
-      </ul>
-    </div>
-    <div class="role">
-      <h4>Coordinador de IA</h4>
-      <p class="who">En Gerencia · administra el sistema completo</p>
-      <ul>
-        <li>Lleva el inventario de cuentas y de equipos autorizados.</li>
-        <li>Hace la auditoría trimestral de cumplimiento (política P9).</li>
-        <li>Revisa la seguridad de cada Skill antes de distribuirla.</li>
-        <li>Mantiene esta guía, las tarjetas y el manual.</li>
+        <li>Está pendiente del uso de cada cuenta.</li>
+        <li>Gestiona las suscripciones, los pagos y las actualizaciones.</li>
+        <li>Define la forma de uso de cada persona.</li>
+        <li>Audita el uso de Claude: cómo lo está usando y optimizando cada departamento.</li>
       </ul>
     </div>
     <div class="role">
       <h4>Gerencia</h4>
-      <p class="who">Autoriza lo excepcional y lo sancionable</p>
+      <p class="who">Milton Rodríguez y Shirley Morales · respalda el uso de Claude</p>
       <ul>
-        <li>Autoriza créditos de uso y modelos Fable, siempre con tope mensual.</li>
-        <li>Da acceso a las carpetas restringidas de Contabilidad, Gestión Humana y Legal.</li>
-        <li>Aprueba cualquier otra herramienta de IA antes de usarla.</li>
-        <li>Decide si la licencia puede usarse en el celular personal, y lo deja escrito.</li>
+        <li>Provee el medio de pago correspondiente cuando se requiera.</li>
       </ul>
     </div>
     <div class="role">
-      <h4>Tesorería y Gestión Humana</h4>
-      <p class="who">Cierran el círculo administrativo</p>
+      <h4>CEO</h4>
+      <p class="who">Stevenson Rivera · aprueba y supervisa</p>
       <ul>
-        <li><strong>Tesorería</strong> paga y registra cada suscripción, y avisa si aparece un cobro de créditos sin autorización.</li>
-        <li><strong>Gestión Humana</strong> incluye la firma de la política en la inducción.</li>
-        <li><strong>Gestión Humana</strong> ejecuta el alta y la baja de cada licencia con su checklist.</li>
+        <li>Aprueba los cambios en las suscripciones.</li>
+        <li>Realiza auditorías constantes del uso de Claude.</li>
       </ul>
     </div>
   </div>
 
-  <h3>Los momentos en que alguien tiene que actuar</h3>
-  <div class="tw"><table>
-    <thead><tr><th>Momento</th><th>Qué se hace</th><th>Quién</th></tr></thead>
-    <tbody>
-      <tr><td>Llega una persona</td><td>Se le crea su cuenta de Claude con el correo de la empresa. Apaga la opción que permite usar sus conversaciones para entrenar a Claude y guarda una captura de pantalla como prueba. Firma la política de uso y recibe la tarjeta de su área</td><td>La persona hace los pasos en su cuenta; Gestión Humana recoge la firma; el coordinador de IA verifica</td></tr>
-      <tr><td>Trabajo diario</td><td>Nivel correcto, revisión según el semáforo, lo útil al repositorio</td><td>La persona</td></tr>
-      <tr><td>Falta cuota o se necesita Fable</td><td>Solicitud justificada, autorización con tope mensual, registro del gasto</td><td>La persona, Gerencia y Tesorería</td></tr>
-      <tr><td>Cambian las instrucciones de un área</td><td>Versión nueva en el repositorio y aviso; cada quien actualiza su Project</td><td>Responsable de conocimiento</td></tr>
-      <tr><td>Cada trimestre</td><td>Auditoría por evidencia y declaración de cumplimiento firmada</td><td>Coordinador y cada persona</td></tr>
-      <tr><td>Hay un incidente</td><td>Se reporta el mismo día. Esconderlo es la falta grave, no el error</td><td>La persona, su líder y Gerencia</td></tr>
-      <tr><td>Alguien sale</td><td>Exportar los datos de la cuenta (Settings → Privacy → Export data) y archivarlos, traspasar lo pendiente, cancelar la suscripción. El correo corporativo se cierra de último</td><td>La persona, con el coordinador de IA y Gestión Humana</td></tr>
-    </tbody>
-  </table></div>
 </section>
 
 <!-- 3 -->
@@ -439,11 +407,11 @@ footer a{color:var(--muted)}
     <div>Bases de datos de clientes sin anonimizar</div>
     <div>Información bajo acuerdo de confidencialidad, sin autorización</div>
     <div>Material de otra empresa o software licenciado</div>
-    <div>Imágenes de rostros o datos biométricos de asistentes a la Feria</div>
+    <div>Imágenes de rostros o datos biométricos de colaboradores de la empresa</div>
   </div>
   <div class="rule">Regla de bolsillo: si no lo escribiría en un correo corporativo que puede ser auditado,
     no lo escriba en Claude.
-    <small>Y antes del primer uso: en Settings → Privacy, apague "Help Improve our AI models". En Pro viene
+    <small>Y antes del primer uso: en Ajustes → Privacidad, apague "Ayuda a mejorar nuestros modelos de IA". En Pro viene
     encendido, y apagarlo después no borra lo que ya se envió.</small></div>
 </section>
 
@@ -462,35 +430,41 @@ footer a{color:var(--muted)}
       <tr><td><span class="lv">N1</span> Rápido</td><td>Si se equivoca, usted lo nota y lo corrige</td><td>Sonnet 5</td><td>Low o Medium</td><td>Usted</td></tr>
       <tr><td><span class="lv">N2</span> Análisis</td><td>Trabaja con información real que hay que contrastar</td><td>Sonnet 5</td><td>Medium si es rutinario · High si hay cifras o análisis</td><td>Usted, con la fuente al lado</td></tr>
       <tr><td><span class="lv">N3</span> Profundo</td><td>Problema complejo, o el resultado lo usa otra área o un cliente</td><td>Opus 5</td><td>High · Extra high en problemas técnicos duros</td><td>Un segundo par de ojos</td></tr>
-      <tr><td><span class="lv">N4</span> Crítico</td><td>Dinero, contratos, datos personales o laborales, temas legales, o algo que no se puede deshacer</td><td>Opus 5</td><td>Max si es irreversible · Extra high si es técnico</td><td>Verificación independiente y firma 🔴</td></tr>
+      <tr><td><span class="lv">N4</span> Crítico</td><td>Dinero, contratos, datos personales o laborales, temas legales, o algo que no se puede deshacer</td><td>Opus 5</td><td>Extra high</td><td>Verificación independiente y firma 🔴</td></tr>
     </tbody>
   </table></div>
   <p><strong>Fable 5.1</strong> queda fuera de la tabla a propósito: se usa solo con autorización de Gerencia,
     porque no está incluido en la suscripción Pro y se cobra aparte.</p>
 
+  <h3>Identifique qué modelo debe usar</h3>
   <form class="decide" id="decide" onsubmit="return false">
     <fieldset>
-      <legend>1. Si Claude se equivoca en esta tarea, ¿qué pasa?</legend>
+      <legend>1. Si hay un error, ¿qué tipo de impacto tiene?</legend>
       <div class="opts">
-        <label><input type="radio" name="c" value="1" id="c1"> Nada grave: lo noto y lo corrijo yo</label>
-        <label><input type="radio" name="c" value="2" id="c2"> Un error interno que se detecta revisando contra la fuente</label>
-        <label><input type="radio" name="c" value="3" id="c3"> Afecta a otra área, a un cliente o a un trabajo complejo</label>
-        <label><input type="radio" name="c" value="4" id="c4"> Toca dinero, un contrato, datos personales o laborales, algo legal, o no tiene reversa</label>
+        <label><input type="radio" name="c" value="1" id="c1"> <span>Uso personal o borrador<small class="ex">Ejemplo: un correo, un resumen de reunión, una publicación sin salir aún</small></span></label>
+        <label><input type="radio" name="c" value="2" id="c2"> <span>Análisis o reporte interno<small class="ex">Ejemplo: un análisis de novedades logísticas, un reporte de ventas, una respuesta a un ticket</small></span></label>
+        <label><input type="radio" name="c" value="3" id="c3"> <span>Trabajo para otra área, un cliente o algo complejo<small class="ex">Ejemplo: una pieza para redes sociales, código que pasa a producción, una propuesta comercial</small></span></label>
+        <label><input type="radio" name="c" value="4" id="c4"> <span>Dinero, contrato, datos personales o laborales, o algo legal<small class="ex">Ejemplo: una factura, un contrato, la nómina, un perfil de cargo, una comunicación legal</small></span></label>
       </div>
     </fieldset>
     <fieldset>
-      <legend>2. ¿A dónde va el resultado?</legend>
+      <legend>2. ¿A quién llega el resultado?</legend>
       <div class="opts">
-        <label><input type="radio" name="d" value="1" id="d1"> Lo uso yo, como apoyo para mi propio trabajo</label>
-        <label><input type="radio" name="d" value="2" id="d2"> Se queda dentro de mi área o pasa a otra área</label>
-        <label><input type="radio" name="d" value="3" id="d3"> Sale de la empresa, se firma, se paga o sustenta una decisión</label>
+        <label><input type="radio" name="d" value="1" id="d1"> <span>Solo a mí, como apoyo para mi propio trabajo<small class="ex">Ejemplo: organizar mis pendientes, entender un documento largo</small></span></label>
+        <label><input type="radio" name="d" value="2" id="d2"> <span>A mi área o a otra área de la empresa<small class="ex">Ejemplo: un reporte para su líder, un dato que Contabilidad necesita de Comercial</small></span></label>
+        <label><input type="radio" name="d" value="3" id="d3"> <span>Fuera de la empresa, o sustenta un pago o una decisión<small class="ex">Ejemplo: una respuesta a un cliente, un pago, contenido publicado, una decisión de comité</small></span></label>
       </div>
     </fieldset>
     <fieldset>
-      <legend>3. ¿Es un problema técnico difícil, como código o datos complejos?</legend>
+      <legend>3. ¿Qué tipo de tarea es?</legend>
       <div class="opts">
-        <label><input type="radio" name="t" value="0" id="t0"> No</label>
-        <label><input type="radio" name="t" value="1" id="t1"> Sí</label>
+        <label><input type="radio" name="t" value="0" id="t0a"> <span>Texto o comunicación<small class="ex">Ejemplo: un correo, un resumen, una publicación, un contenido</small></span></label>
+        <label><input type="radio" name="t" value="0" id="t0b"> <span>Informe o reporte<small class="ex">Ejemplo: un informe de ventas, un reporte de novedades, un indicador</small></span></label>
+        <label><input type="radio" name="t" value="0" id="t0c"> <span>Revisión de documentos<small class="ex">Ejemplo: un contrato, una política, un manual, un formato</small></span></label>
+        <label><input type="radio" name="t" value="0" id="t0d"> <span>Material de diseño<small class="ex">Ejemplo: una pieza gráfica, una plantilla, un material visual</small></span></label>
+        <label><input type="radio" name="t" value="1" id="t1a"> <span>Dashboard o análisis de datos complejos<small class="ex">Ejemplo: cruces de información, grandes volúmenes, indicadores avanzados</small></span></label>
+        <label><input type="radio" name="t" value="1" id="t1b"> <span>Desarrollo o código<small class="ex">Ejemplo: una integración, un módulo, una consulta técnica</small></span></label>
+        <label><input type="radio" name="t" value="0" id="t0e"> <span>Otra, sin relación con desarrollo ni grandes volúmenes de datos</span></label>
       </div>
     </fieldset>
     <div class="result" id="result" aria-live="polite">
@@ -767,7 +741,7 @@ Antes de responder, verifica que ninguna tarea quede después de la fecha de la 
     <dt>Project</dt><dd>Espacio de trabajo con instrucciones y archivos propios. El de su área se copia del repositorio.</dd>
     <dt>Repositorio</dt><dd>La carpeta corporativa donde vive el conocimiento común. Lo que no está allí, no existe para la empresa.</dd>
     <dt>Artifact</dt><dd>Herramienta o documento que Claude crea en una ventana aparte. Se comparte con personas concretas, nunca con enlace público.</dd>
-    <dt>Opt-out</dt><dd>Apagar "Help Improve our AI models" para que sus conversaciones no se usen en entrenamiento.</dd>
+    <dt>Opt-out</dt><dd>Apagar "Ayuda a mejorar nuestros modelos de IA" (Ajustes → Privacidad) para que sus conversaciones no se usen en entrenamiento.</dd>
   </dl>
 
   <h3>Dónde está el resto</h3>
@@ -897,7 +871,7 @@ Antes de responder, verifica que ninguna tarea quede después de la fecha de la 
     1:{n:'N1',nom:'Rápido',m:'Sonnet 5',e:['Low o Medium','Medium'],c:'Bajo'},
     2:{n:'N2',nom:'Análisis',m:'Sonnet 5',e:['Medium, o High si hay cifras','High'],c:'Medio'},
     3:{n:'N3',nom:'Profundo',m:'Opus 5',e:['High','Extra high'],c:'Alto'},
-    4:{n:'N4',nom:'Crítico',m:'Opus 5',e:['Max','Extra high'],c:'Muy alto'}
+    4:{n:'N4',nom:'Crítico',m:'Opus 5',e:['Extra high','Extra high'],c:'Muy alto'}
   };
   var SUP={1:['🟢','Usted mismo'],2:['🟡','Usted, contra la fuente'],3:['🔴','Otra persona verifica y firma']};
   function val(n){ var x=form.querySelector('input[name="'+n+'"]:checked'); return x?parseInt(x.value,10):null; }
@@ -916,9 +890,10 @@ Antes de responder, verifica que ninguna tarea quede después de la fecha de la 
     why.push('El nivel sale de la consecuencia de un error: '+lv.n+' '+lv.nom+'.');
     if(c===4) why.push('Al ser N4, la revisión es siempre 🔴, aunque el resultado no salga de la empresa.');
     else if(s===3) why.push('Aunque el nivel sea '+lv.n+', el resultado sale de la empresa o sustenta una decisión, así que se revisa como 🔴 antes de usarlo.');
-    if(t && c>=3) why.push('Por ser un problema técnico, el esfuerzo sube a Extra high.');
+    if(t && lv.e[0]!==lv.e[1]) why.push('Por ser un problema técnico, el esfuerzo sube a Extra high.');
     why.push('Consumo de cuota: '+lv.c.toLowerCase()+'. Trabájelo dentro del Project de su área.');
     out.innerHTML=
+      '<p class="suggest">Modelo sugerido: <b>'+lv.m+'</b> · Esfuerzo sugerido: <b>'+eff+'</b></p>'+
       '<div class="cells">'+
         '<div class="cell"><b>Nivel</b><span>'+lv.n+' '+lv.nom+'</span></div>'+
         '<div class="cell"><b>Modelo</b><span>'+lv.m+'</span></div>'+
@@ -930,4 +905,3 @@ Antes de responder, verifica que ninguna tarea quede después de la fecha de la 
   form.addEventListener('change',render);
 })();
 </script>
-
